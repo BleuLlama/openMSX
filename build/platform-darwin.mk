@@ -26,7 +26,7 @@ LIBRARYEXT:=.so
 # since libraries such as libxml2 can change soname between OS X versions.
 # Clang as shipped with Xcode requires OS X 10.7 or higher for compiling with
 # libc++, when compiling Clang and libc++ from source 10.6 works as well.
-OSX_VER:=10.7
+OSX_VER:=10.14
 TARGET_FLAGS+=-mmacosx-version-min=$(OSX_VER)
 
 # Select Clang as the compiler and libc++ as the standard library.
@@ -35,3 +35,6 @@ TARGET_FLAGS+=-stdlib=libc++
 
 # Link against CoreMIDI.
 LINK_FLAGS+=-framework CoreMIDI
+
+# additional frameworks for 10.14 build.
+LINK_FLAGS+= -framework CoreFoundation -framework ApplicationServices

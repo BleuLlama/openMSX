@@ -164,6 +164,8 @@ unique_ptr<MSXDevice> DeviceFactory::create(const DeviceConfig& conf)
 		result = make_unique<MSXFmPac>(conf);
 	} else if (type == "MSX-AUDIO") {
 		result = make_unique<MSXAudio>(conf);
+	} else if (type == "MC6850-ACIA") {
+		result = make_unique<MC6850>(conf);
 	} else if (type == "MusicModuleMIDI") {
 		result = make_unique<MC6850>(conf);
 	} else if (type == "FACMIDIInterface") {

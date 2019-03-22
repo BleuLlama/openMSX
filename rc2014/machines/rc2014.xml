@@ -1,0 +1,55 @@
+<?xml version="1.0" ?>
+<!DOCTYPE msxconfig SYSTEM 'msxconfig2.dtd'>
+<msxconfig>
+
+  <info>
+    <manufacturer>RFC2795 - Semachthemonkey - Spencer Owen</manufacturer>
+    <code>RC2014 Mini</code>
+    <release_year>2014</release_year>
+    <description>The unexpanded RC2014 Mini</description>
+    <type>RC2014</type>
+  </info>
+
+  <devices>
+
+
+    <MC6850-ACIA id="Console">
+      <io base="0x80" num="2"/>
+    </MC6850-ACIA>
+
+    <!-- even though I don't need this right now, we'll define it
+        so we don't get the TV static, ;) -->
+    <VDP id="VDP">
+      <version>TMS9918A</version>
+      <io base="0x98" num="2"/>
+    </VDP>
+
+<!--
+    <MusicModuleMIDI id="Storage Serial">
+      <io base="0xC0" num="2"/>
+    </MusicModuleMIDI>
+-->
+
+    <primary slot="0">
+      <secondary slot="0">
+        <ROM id="32k Basic ROM">
+          <rom>
+            <filename>rc2014_basic32.rom</filename>
+            <sha1>7c9613e160b324ee1ed42fc48d98bbc215791e81</sha1>
+          </rom>
+          <mem base="0x0000" size="0x2000"/>
+        </ROM>
+      </secondary>
+
+      <secondary slot="1">
+        <MemoryMapper id="Main RAM">
+          <size>32768</size>
+          <mem base="0x8000" size="0x8000"/>
+        </MemoryMapper>
+      </secondary>
+
+    </primary>
+
+  </devices>
+
+</msxconfig>
